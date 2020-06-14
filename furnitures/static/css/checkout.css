@@ -1,0 +1,53 @@
+.checkout-btn {
+    font-size: 20px;
+    line-height: 30px;
+}
+.checkout-title {
+    color: #00008B;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.contact-container {
+    border: 1px solid #dfdfdf;
+    margin: 0.3cm 0;
+    padding-top: 1.0cm;
+}
+
+.checkout-summary, .checkout-info {
+    border: 1px solid rgba(0,0,0,.125);
+}
+.checkout-info{
+    margin-bottom: 1.0cm;
+}
+
+.shipping-summary {
+    padding: 0.5cm 0.8cm;
+}
+
+.customized-header {
+    color: #00008B;
+    font-size: 23px;
+    margin-left: 0.3cm; 
+}
+.shipping-summary input[type=submit] {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    float: right;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.shipping-summary input[type=submit]:hover {
+    color: #fff;
+}
+
+.order-container{
+    margin-top: 2.0cm;
+    margin-bottom: 7.0cm;
+}
+
+.item-checkout{
+    max-height: 100px;
+}

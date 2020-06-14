@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <section>
+        <div class="container ">
+            <div class="landing mt-5 mb-5">
+            </div>
+
+            <div class="text-center">
+                <div class="top-product-heading">Shop by category</div>
+            </div>
+
+
+            <div class="row py-1 mt-2">
+                {% for category in categories%}
+                <div class="col-md-6 product" onclick="location.href='{{ url_for('main.category', categoryid=category.id) }}';" style="cursor: pointer">
+                        <article class="card mb-4 shadow-sm" >
+                            <img class="card-img-top category-img" src="{{url_for('static', filename='images/'+ category.image)}}" class="d-block w-100" alt="Card Image">
+                            <div class="card-body text-center">
+                                <a href="{{ url_for('main.category', categoryid=category.id) }}">
+                                </a>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ category.description }}</h6>
+                            </div>
+                        </article>
+                </div> 
+                {% endfor %}
+            </div>
+        </div> 
+    </section>
+{% endblock %}  

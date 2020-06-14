@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<section>
+ 
+    <div class="container">
+        <h1 class="cart-title">YOUR CART</h1>
+        <div class="cart-container">
+        {% if order.products %}
+            <div class="product-checkout">
+                <table id="cart" class="table">
+                    <tbody>
+                    {% for product in order.products %}
+                        <tr> 
+                            <td class="">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="card-img-top item-checkout" src="{{url_for('static', filename='images/'+ product.image)}}" alt="Card Image">
+                                    </div>
+                                    <div class="col-sm-10 item-detail">
+                                        <a href="">
+                                            <h6 class="card-title">{{ product.name }}</h6>
+                                        </a>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ product.short_description }}</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="item-price">{{ "$%.2f"|format(product.price) }}</td>
+                            <td class="actions" data-th="">
+                                <form method="POST" action="{{ url_for('main.deleteorderitem') }}">
+                                    <input type="hidden" id="id" name="id" value="{{product.id}}">
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>	
+                                </form> 
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="mb-4">
+                    <a href="{{ url_for('main.deleteorder') }}" class="mt-4 btn btn-danger float-right">Empty Cart</a>
+                </div>
+            </div>
+
+            <div class="total-container">
+                <div class="row">
+                    <div class="col-2 col-md-8"></div>
+                    <h5 class="col-10 col-md-4 summary-title">Order Summary</h5>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-md-8"></div>
+                    <div class="col-5 col-md-2">
+                        <p class="order-price">Sub Total</p>
+                    </div>
+                    <div class="col-5 col-md-2">
+                        <p class="order-price float-right">{{ "$%.2f"|format(order.subtotal_cost) }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-md-8"></div>
+                    <div class="col-5 col-md-2">
+                        <p class="order-price">Delivery</p>
+                    </div>
+                    <div class="col-5 col-md-2">
+                        <p class="order-price float-right">{{ "$%.2f"|format(order.delivery_cost) }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-md-8"></div>
+                    <div class="col-5 col-md-2">
+                        <p class="total-price">Total</p>
+                    </div>
+                    <div class="col-5 col-md-2">
+                        <p class="total-price float-right">{{ "$%.2f"|format(order.total_cost) }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2 col-md-8"></div>
+                    <div class="col-10 col-md-4 mt-3">
+                        <form action="{{ url_for('main.checkout', orderid = order.id) }}">
+                            <input type="hidden" id="order_id" name="order_id" value="{{ order.id }}">
+                            <button class="checkout-btn btn btn-primary float-right">Checkout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                <div class = "col-12">
+                    <h3 class="mt-4 text-center">
+                        Your shopping cart is empty.
+                    </3>
+                    <div>
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary mt-4">Back to homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+</section>
+{% endblock %}

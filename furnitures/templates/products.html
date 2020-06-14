@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <section>
+        <div class="container mt-4">
+            {% if products %}
+                <div class="row py-1 mt-4">
+                    {% for product in products%}
+                    <div class="col-md-4 product" onclick="location.href='{{ url_for('main.product', productid=product.id) }}';" style="cursor: pointer">
+                        <article class="card mb-4 shadow-sm">
+                            <img class="card-img-top product-img" src="{{url_for('static', filename='images/'+ product.image)}}" alt="Card Image">
+                            <div class="card-body">
+                                <a href="{{ url_for('main.product', productid=product.id) }}">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ product.short_description }}</h6>
+                                <p class="card-text card-price">{{ "$%.2f"|format(product.price) }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <form action="{{ url_for('main.cart') }}">
+                                    <input type="hidden" id="product_id" name="product_id" value="{{ product.id }}">
+                                    <input class="btn btn-primary" type="submit" value="Add to Cart">
+                                    <div class="message">
+                                            {% with messages = get_flashed_messages() %}
+                                                {% if messages %}
+                                                {% for message in messages %}
+                                                    {{ message }}
+                                                {% endfor %}
+                                                {% endif %}
+                                            {% endwith %}
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
+                    </div> 
+                    {% endfor %}
+                </div>
+            {% else %}
+            <div class="row no-products-container">
+                <div class = "col-12">
+                    <h3 class="text-center mt-4 mb-4">
+                        Sorry, there is no products matching your search
+                    </3>
+                    <div class="mt-4 mb-4">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary mb-4">Back to homepage</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div> 
+    </section>
+{% endblock %}

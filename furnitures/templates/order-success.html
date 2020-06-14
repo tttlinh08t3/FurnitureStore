@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <section>  
+        <div class="container">
+            <div class="row order-container">
+                <div class = "col-12">
+                    <h1 class="order-title">ORDER SUCCESSFUL</h1>
+                    <h5 class="mt-4 text-center">
+                        Thank you for shopping. Your order has been received. Your order will be shortly be processed by our team members.
+                    </h5>
+                    <div class="text-center">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary mt-4">Back to homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

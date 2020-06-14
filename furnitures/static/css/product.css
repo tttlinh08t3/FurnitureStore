@@ -1,0 +1,174 @@
+.image-selected >img{
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: black;
+}
+
+.category, .product{
+    cursor: pointer;
+}
+
+.product-name{
+    font-weight: bold;    
+}
+
+.product-des {
+    color: grey;
+}
+
+.product-price {
+    color: #00008B;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.quantity-btn {
+    font-size: 30px;
+    color: #999;
+}
+
+.quantity {
+    display: flex;
+}
+
+.add-cart-section{
+    margin-top: 0.5cm;
+    margin-bottom: 0.2cm;
+}
+
+.add-btn {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.delivery-options {
+    width: 235px;
+    margin-top: 1.0cm; 
+    border: 1px solid #ccc; 
+}
+
+.delivery-options .description{
+    margin: 10px 0 0 10px;
+}
+
+.delivery-options .nav-tabs{
+    background-color: #F8F8FF;
+}
+
+.delivery-options .tab-item{
+    color: #007bff;
+    border-left: 1px solid #ccc; 
+}
+
+.product-info {
+    margin: 70px 0;
+}
+
+.card-body {
+    margin-left: 0.4cm; 
+}
+.card {
+    border-left: none;
+    border-right: none;
+}
+
+.expandable-header {
+    background-color: #ffffff;
+}
+
+.fa-plus {
+    color: #007bff;
+}
+
+.item-container {
+    display: flex !important;
+    align-items: center;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+    border: 1px solid grey;
+    margin-bottom: 0.7cm;
+}
+
+.product-container .card-img-top{
+    margin-left: -1cm;
+}
+
+.price-container {
+    margin: auto;
+}
+
+.total-container {
+    margin-top: 2cm;
+}
+.cart-container {
+    margin-top: 1cm;
+    margin-bottom: 4cm;
+}
+
+.summary-title, .cart-title, .order-title, .top-product-heading  {
+    color: #00008B;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0.5cm;
+    margin-top: 0.5cm
+}
+
+.order-title {
+    margin-left: 1.0cm
+}
+
+.order-price{
+    font-size: 16px;
+}
+
+.total-price{
+    font-weight: bold;
+}
+
+.item-price {
+    color: #00008B;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 575px)  {
+    .product-details {
+        margin-left: 0.3cm;
+    }
+}   
+#cart {
+    margin:0 auto;
+    border-collapse: separate;
+    border-spacing: 0 1.0cm;
+}
+#cart tr{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+}
+
+#cart td {
+    border: none;
+}
+
+#cart td, th {
+    vertical-align: middle!important;
+}
+
+.item-detail {
+    margin-top: 0.2cm;
+}
+
+.message {
+    margin-top: 0.5cm;
+    color: #ff9800;
+} 
+
+.no-products-container {
+    margin-top: 3.0cm;
+    margin-bottom: 7.0cm;
+}
+
+.card-footer {
+    padding: 0.5cm 0.5cm 0cm 1cm !important;
+}
